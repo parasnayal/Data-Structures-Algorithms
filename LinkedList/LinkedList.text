@@ -1,0 +1,21 @@
+************** Introduction of linked list *******************
+List is a collection of elements.There are two ways of implementing a list in a computer memory.The first way is to store the element of the list in an array.But array have some disadvantages.Insertion and deletion operations is required more processing.If the number of elements is less than the size of the array then it will be wastage of memory and if the number of elements exceed the size of the array then also we will have problem.
+
+The second way is implementing a list by using the self referential structure.These types of list are known as linked list.
+
+A linked list is made up of a nodes where each node has two parts.The first part of nodes contains the information about the data and second part of the nodes contains the address of the next node.The address part of the last node of linked list contains null.
+
+The nodes of a linked list are not stored in contiguous memory location.
+
+// Ooperations on a linked list
+// Traversal of linked list
+//  searching an element 
+//  Insertion of an element 
+//  deletion of an element 
+//  creation of a linked list
+//  Reversal of a linked list
+
+// Types of linked list
+// (1) => Singly linked list
+// (2) => Doubly linked list
+// (3) => circular linked list
