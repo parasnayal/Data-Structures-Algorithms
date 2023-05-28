@@ -1,0 +1,5 @@
+We know that programming language have built-in data type such as => int , float , char etc . In which we can perform the operations like => addition , substraction , multiplication etc . But there might be a situation in which we want to perform the operations for our user defined data types which we have to defined . To resolve this problem , we create data structures along with some basic operations and data structures which are not built-in are known as abstract data type.
+
+Abstract data type is a type (or a class) for objects whose behaviour is defined by a set of values and a set of operations.The definition of ADT only mentions that what operations are to be performed but not how these operations will be implemented.
+
+The process of only providing the essentials and hiding the details is known as abstraction
