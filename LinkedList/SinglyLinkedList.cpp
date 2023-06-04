@@ -23,17 +23,20 @@ public:
         this->head = NULL;
     }
     void create_list();
+    void insert_at_beg();
+    void insert_at_end();
+    void insert_at_index();
     void display();
 };
 void list ::create_list()
 {
     int choice = 1, data;
-    Node *temp;
+    Node *temp, *newNode;
     while (choice)
     {
-        cout << "Enter the data in the linked list " << endl;
+        cout << "Enter the elements of the linked list " << endl;
         cin >> data;
-        Node *newNode = new Node(data);
+        newNode = new Node(data);
         if (head == NULL)
         {
             head = temp = newNode;
@@ -43,9 +46,32 @@ void list ::create_list()
             temp->next = newNode;
             temp = newNode;
         }
-        cout << "Do you want to continue (0,1) ? " << endl;
+        cout << "Do you want to continue (0 , 1 ) ? " << endl;
         cin >> choice;
     }
+}
+void list ::insert_at_beg()
+{
+    int choice = 1, data;
+    Node *newNode, *temp = head;
+    while (choice)
+    {
+        cout << "Enter the element at the beginning of the linked list => " << endl;
+        cin >> data;
+        newNode = new Node(data);
+        newNode->next = temp;
+        temp = newNode;
+        cout << "Do you want to continue (0 , 1 ) ? " << endl;
+        cin >> choice;
+    }
+    head = temp;
+}
+void list ::insert_at_end()
+{
+    
+}
+void list ::insert_at_index()
+{
 }
 void list ::display()
 {
@@ -61,8 +87,10 @@ int main(void)
 {
     list l1;
     l1.create_list();
-
-    cout << "Elment of the linked list are " << endl;
+    cout << "Elements of the linked list are => " << endl;
+    l1.display();
+    l1.insert_at_beg();
+    cout << "Elements of the linked list after inserting the element at the beginning of the linked list are => " << endl;
     l1.display();
     return 0;
 }
