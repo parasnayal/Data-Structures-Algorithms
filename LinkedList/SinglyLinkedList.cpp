@@ -15,36 +15,38 @@ public:
 class list
 {
 private:
-    Node *head;
+    Node *head, *tail;
 
 public:
     list()
     {
         this->head = NULL;
+        this->tail = NULL;
     }
     void create_list();
     void insert_at_beg();
     void insert_at_end();
-    void insert_at_index();
+    void insert_at_index(int index);
     void display();
 };
 void list ::create_list()
 {
-    int choice = 1, data;
+    int data, choice = 1;
     Node *temp, *newNode;
     while (choice)
     {
-        cout << "Enter the elements of the linked list " << endl;
+        cout << "Enter the element of the linked list " << endl;
         cin >> data;
         newNode = new Node(data);
         if (head == NULL)
         {
-            head = temp = newNode;
+            head = temp = tail = newNode;
         }
         else
         {
             temp->next = newNode;
             temp = newNode;
+            tail = newNode;
         }
         cout << "Do you want to continue (0 , 1 ) ? " << endl;
         cin >> choice;
@@ -52,11 +54,11 @@ void list ::create_list()
 }
 void list ::insert_at_beg()
 {
-    int choice = 1, data;
-    Node *newNode, *temp = head;
+    int data, choice = 1;
+    Node *temp = head, *newNode;
     while (choice)
     {
-        cout << "Enter the element at the beginning of the linked list => " << endl;
+        cout << "Enter element at the beginning of the linked list " << endl;
         cin >> data;
         newNode = new Node(data);
         newNode->next = temp;
@@ -68,10 +70,35 @@ void list ::insert_at_beg()
 }
 void list ::insert_at_end()
 {
-    
+    int data, choice = 1;
+    Node *temp = tail, *newNode;
+    while (choice)
+    {
+        cout << "Enter the element at the end of the linked list " << endl;
+        cin >> data;
+        newNode = new Node(data);
+        temp->next = newNode;
+        temp = newNode;
+        cout << "Do you want to continue (0 , 1 ) ? " << endl;
+        cin >> choice;
+    }
+    tail = temp;
 }
-void list ::insert_at_index()
+void list ::insert_at_index(int index)
 {
+    int data, i = 0;
+    Node *temp = head, *newNode;
+
+    while (i < index-1)
+    {
+        temp = temp->next;
+        i++;
+    }
+    cout << "Enter the element " << endl;
+    cin >> data;
+    newNode = new Node(data);
+    newNode->next = temp->next;
+    temp->next = newNode;
 }
 void list ::display()
 {
@@ -89,8 +116,18 @@ int main(void)
     l1.create_list();
     cout << "Elements of the linked list are => " << endl;
     l1.display();
+
     l1.insert_at_beg();
-    cout << "Elements of the linked list after inserting the element at the beginning of the linked list are => " << endl;
+    cout << "Elements of the linked list after inserting the element at beginning => " << endl;
+    l1.display();
+
+    l1.insert_at_end();
+    cout << "Elements of the linked list after inserting the element at the end => " << endl;
+    l1.display();
+
+    int index = 3;
+    l1.insert_at_index(index);
+    cout << "Elements of the linked list after inserting the element at index " << index << " are => " << endl;
     l1.display();
     return 0;
 }
