@@ -1,4 +1,10 @@
 // Creation of the singly linked list
+// Insertion at beg => O(1)
+// Insertion at index => O(n)
+// Insertion at end => O(n) and if we maintain a tail pointer then it would be optimize to O(1)
+// delete at beg => O(1)
+// delete at index => O(n)
+// delete at end => O(n) and if we maintain a tail pointer then it would be optimize to O(1)
 #include <iostream>
 using namespace std;
 
@@ -33,6 +39,7 @@ public:
     void delete_at_beg();
     void delete_at_end();
     void delete_at_index(int index);
+    void reverse();
     void display();
     int getLength()
     {
@@ -164,6 +171,21 @@ void list ::delete_at_index(int index)
     curNode->next = nextNode->next;
     delete nextNode;
 }
+
+void list ::reverse()
+{
+    Node *curNode = head, *nextNode = head->next, *prevNode = NULL;
+    tail = head;
+    while (nextNode != NULL)
+    {
+        curNode->next = prevNode;
+        prevNode = curNode;
+        curNode = nextNode;
+        nextNode = nextNode->next;
+    }
+    curNode->next = prevNode;
+    head = curNode;
+}
 void list ::display()
 {
     Node *temp = head;
@@ -181,32 +203,36 @@ int main(void)
     cout << "Elements of the singly linked list are => " << endl;
     l1.display();
 
-    l1.insert_at_beg();
-    cout << "Elements of the singly linked list after inserting element at the beginning => " << endl;
-    l1.display();
+    // l1.insert_at_beg();
+    // cout << "Elements of the singly linked list after inserting element at the beginning => " << endl;
+    // l1.display();
 
-    l1.insert_at_end();
-    cout << "Elements of the singly linked list after inserting element at the end => " << endl;
-    l1.display();
+    // l1.insert_at_end();
+    // cout << "Elements of the singly linked list after inserting element at the end => " << endl;
+    // l1.display();
 
-    int index = 3;
-    l1.insert_at_index(index);
-    cout << "Elements of the singly linked list after inserting element at the index " << index << " are => " << endl;
-    l1.display();
+    // int index = 3;
+    // l1.insert_at_index(index);
+    // cout << "Elements of the singly linked list after inserting element at the index " << index << " are => " << endl;
+    // l1.display();
 
-    cout << "Length of the linked list is => " << l1.getLength() << endl;
+    // cout << "Length of the linked list is => " << l1.getLength() << endl;
 
-    l1.delete_at_beg();
-    cout << "Elements of the singly linked list after deleting the element from the beginning => " << endl;
-    l1.display();
+    // l1.delete_at_beg();
+    // cout << "Elements of the singly linked list after deleting the element from the beginning => " << endl;
+    // l1.display();
 
-    l1.delete_at_end();
-    cout << "Elements of the singly linked list after deleting the element from the end => " << endl;
-    l1.display();
+    // l1.delete_at_end();
+    // cout << "Elements of the singly linked list after deleting the element from the end => " << endl;
+    // l1.display();
 
-    index = 2;
-    l1.delete_at_index(index);
-    cout << "Elements of the singly linked list after deleting the element from the index " << index << " are => " << endl;
+    // index = 2;
+    // l1.delete_at_index(index);
+    // cout << "Elements of the singly linked list after deleting the element from the index " << index << " are => " << endl;
+    // l1.display();
+
+    l1.reverse();
+    cout << "Elements of the linked list after reversing => " << endl;
     l1.display();
 
     cout << "Length of the linked list is => " << l1.getLength() << endl;
