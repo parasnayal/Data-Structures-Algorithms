@@ -28,6 +28,9 @@ public:
     void insert_at_beg();
     void insert_at_end();
     void insert_at_index(int index);
+    void delete_at_beg();
+    void delete_at_end();
+    void delete_at_index(int index);
     void display();
 };
 void list ::create_list()
@@ -95,17 +98,54 @@ void list ::insert_at_index(int index)
 {
     int data, i = 0;
     Node *temp = head, *newNode;
-    while (i < index - 1)
+    if (index == 0)
+    {
+        insert_at_beg();
+    }
+    else
+    {
+
+        while (i < index - 1)
+        {
+            temp = temp->next;
+            i++;
+        }
+        cout << "Enter the element " << endl;
+        cin >> data;
+        newNode = new Node(data);
+        newNode->prev = temp;
+        newNode->next = temp->next;
+        temp->next = newNode;
+    }
+}
+
+void list ::delete_at_beg()
+{
+    Node *temp = head;
+    head = temp->next;
+    head->prev = NULL;
+    delete temp;
+}
+
+void list ::delete_at_end()
+{
+    Node *temp = tail;
+    tail->prev->next = NULL;
+    tail = temp->prev;
+    delete temp;
+}
+
+void list ::delete_at_index(int index)
+{
+    int i = 0;
+    Node *temp = head;
+    while (i < index)
     {
         temp = temp->next;
         i++;
     }
-    cout << "Enter the element " << endl;
-    cin >> data;
-    newNode = new Node(data);
-    newNode->prev = temp;
-    newNode->next = temp->next;
-    temp->next = newNode;
+    temp->prev->next = temp->next;
+    delete temp;
 }
 void list ::display()
 {
@@ -124,17 +164,30 @@ int main(void)
     cout << "Elements of the doubly linked list are => " << endl;
     l1.display();
 
-    l1.insert_at_beg();
-    cout << "Elements of the doubly linked list after inserting element at the beginning => " << endl;
+    // l1.insert_at_beg();
+    // cout << "Elements of the doubly linked list after inserting element at the beginning => " << endl;
+    // l1.display();
+
+    // l1.insert_at_end();
+    // cout << "Elements of the doubly linked list after inserting element at the end => " << endl;
+    // l1.display();
+
+    // int index = 3;
+    // l1.insert_at_index(index);
+    // cout << "Elements of the doubly linked list after inserting element at index " << index << " are => " << endl;
+    // l1.display();
+
+    l1.delete_at_beg();
+    cout << "Elements of the doubly linked list after deleting element from the beginning => " << endl;
     l1.display();
 
-    l1.insert_at_end();
-    cout << "Elements of the doubly linked list after inserting element at the end => " << endl;
+    l1.delete_at_end();
+    cout << "Elements of the doubly linked list after deleting element from the end => " << endl;
     l1.display();
 
     int index = 3;
-    l1.insert_at_index(index);
-    cout << "Elements of the doubly linked list after inserting element at index " << index << " are => " << endl;
+    l1.delete_at_index(index);
+    cout << "Elements of the doubly linked list after deleting element from the end => " << endl;
     l1.display();
     return 0;
 }
