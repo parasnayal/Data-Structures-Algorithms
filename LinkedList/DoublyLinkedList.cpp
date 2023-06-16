@@ -31,6 +31,7 @@ public:
     void delete_at_beg();
     void delete_at_end();
     void delete_at_index(int index);
+    void reverse();
     void display();
 };
 void list ::create_list()
@@ -147,6 +148,24 @@ void list ::delete_at_index(int index)
     temp->prev->next = temp->next;
     delete temp;
 }
+
+void list ::reverse()
+{
+    Node *temp = head, *nextNode = head->next, *prevNode = NULL;
+    tail = head;
+    while (nextNode != NULL)
+    {
+
+        temp->next = prevNode;
+        temp->prev = nextNode;
+        prevNode = temp;
+        temp = nextNode;
+        nextNode = nextNode->next;
+    }
+    temp->next = prevNode;
+    temp->prev = nextNode;
+    head = temp;
+}
 void list ::display()
 {
     Node *temp = head;
@@ -177,17 +196,21 @@ int main(void)
     // cout << "Elements of the doubly linked list after inserting element at index " << index << " are => " << endl;
     // l1.display();
 
-    l1.delete_at_beg();
-    cout << "Elements of the doubly linked list after deleting element from the beginning => " << endl;
-    l1.display();
+    // l1.delete_at_beg();
+    // cout << "Elements of the doubly linked list after deleting element from the beginning => " << endl;
+    // l1.display();
 
-    l1.delete_at_end();
-    cout << "Elements of the doubly linked list after deleting element from the end => " << endl;
-    l1.display();
+    // l1.delete_at_end();
+    // cout << "Elements of the doubly linked list after deleting element from the end => " << endl;
+    // l1.display();
 
-    int index = 3;
-    l1.delete_at_index(index);
-    cout << "Elements of the doubly linked list after deleting element from the end => " << endl;
+    // int index = 3;
+    // l1.delete_at_index(index);
+    // cout << "Elements of the doubly linked list after deleting element from the end => " << endl;
+    // l1.display();
+
+    l1.reverse();
+    cout << "Elements of the linked list after reversing => " << endl;
     l1.display();
     return 0;
 }
