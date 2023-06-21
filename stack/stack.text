@@ -1,0 +1,8 @@
+Stack is a linear data structure in which operations are performed in a particular manner.Stack is a ordered list in which insertions and deletions are performed at the one end known as top.Stack follows LIFO(LAST IN FIRST OUT) or FILO (FIRST IN LAST OUT) order for operations.
+
+Basic operations are performed in stack
+push => insert element at top of the stack.
+pop => removes and return element from the top of the stack.
+peek => return element from the top of the stack.
+isEmpty => find whether stack is empty or not.
+size => return the size of the stack.
