@@ -1,6 +1,6 @@
 // Selection Sort Algorithm
 // Time complexity in both case O(n^2)
-// Auxiliary Space: O(n)
+// Auxiliary Space: O(n)(in recursive way)
 // Yes, Selection Sort Algorithm is an in-place algorithm
 // The default implementation of the Selection Sort Algorithm is not stable. However, it can be made stable.
 #include <iostream>
