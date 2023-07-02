@@ -1,0 +1,14 @@
+A queue is a data structure for storing the data (simillar to linked list and stack).A queue is a linear data structure which is open at both ends and operations are performed at both ends.
+
+A queue is a ordered list in which element is inserted at one end (rear) and deletion at the one end (front).The first element to be inserted is the first one to be deleted.
+
+In Queue operations are performed in FIFO (FIRST IN FIRST OUT) manner.
+
+Dequeuing an empty queue is called underflow and Enqueuing an element in a full queue is called overflow.
+
+// The following operations make a queue an ADT. The insertion and deletion in the queue must follow the FIFO scheme.
+// EnQueue => Inserting a data.
+// DeQueue => Removing a data.
+// InFront() => Return the element at the front without removing it.
+// size() => number of element present in the queue.
+// isEmpty()
