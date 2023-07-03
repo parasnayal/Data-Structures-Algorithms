@@ -18,6 +18,10 @@ public:
         this->arr = new int[capacity];
         rear = front = -1;
     }
+    ~queue()
+    {
+        delete[] arr;
+    }
     void enqueue(int data);
     void dequeue();
     int Front();
@@ -49,7 +53,7 @@ void queue ::dequeue()
     else
     {
         int element = arr[front];
-        cout << "Deleted element is => " << element<<endl;
+        cout << "Deleted element is => " << element << endl;
         if (front == rear)
         {
             front = -1;
@@ -75,7 +79,7 @@ int queue ::Front()
 
 int queue ::size()
 {
-    return rear + 1;
+    return rear + front + 1;
 }
 
 void queue ::display()
