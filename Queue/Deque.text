@@ -1,0 +1,16 @@
+The deque in data structure stands for doubly Ended Queue.
+A dqueue is a linear data structure that does not follow the FIFO rule.In a deque data structure data can be inserted and deleted from the both rear and front.
+
+Types of deque in a data structure 
+(1) => Input restricted queue => In an input restricted queue, the data can be inserted from only one end, while it can be deleted from both the ends.
+(2) => Output restricted queue => In an Output restricted queue, the data can be deleted from only one end, while it can be inserted from both the ends.
+
+A Deque can be implemented either using a doubly-linked list or a circular array. In both implementations, we can implement all operations in O(1) time.
+
+
+In a deque in data structure we can perform the following operations:
+
+Insertion at front
+Insertion at rear
+Deletion at front
+Deletion at rear
